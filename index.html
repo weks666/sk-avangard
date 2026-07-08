@@ -32,6 +32,7 @@ h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
 p{margin:0}
 .lead{font-size:clamp(17px,1.55vw,21px);color:#3a3f47;line-height:1.6;text-wrap:pretty}
 section{position:relative;padding:clamp(66px,7.5vw,120px) 0}
+.sec-tint{background:#EFEDE6}
 .sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:52px;max-width:840px}
 .ghost{position:absolute;font-family:var(--display);font-weight:900;color:transparent;-webkit-text-stroke:1.4px rgba(18,21,26,.05);font-size:clamp(120px,20vw,300px);line-height:.8;top:-.24em;right:-.02em;z-index:0;pointer-events:none;user-select:none}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:15px 24px;border-radius:13px;transition:.22s cubic-bezier(.2,.7,.3,1);position:relative;font-family:var(--body)}
@@ -54,19 +55,20 @@ header{position:sticky;top:0;z-index:100;background:rgba(247,246,242,.82);backdr
 .brand{display:flex;align-items:center;gap:12px}
 .brand .mark{width:36px;height:36px;border:1.5px solid var(--ink);border-radius:9px;display:grid;place-items:center}
 .brand .mark svg{width:21px;height:21px;color:var(--accent)}
-.brand .name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;line-height:1}
-.brand .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.brand .name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;line-height:1;display:block}
+.brand .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;line-height:1;margin-top:4px}
+.brand-txt{display:flex;flex-direction:column;justify-content:center}
 .nav-links{display:flex;gap:30px}
 .nav-links a{font-size:14.5px;font-weight:600;color:#3a3f47;transition:.2s}
 .nav-links a:hover{color:var(--accent)}
 .nav-cta{display:flex;align-items:center;gap:18px}
-.nav-phone{font-family:var(--mono);font-weight:600;font-size:14.5px}
+.nav-phone{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:-.005em}
 .nav-phone:hover{color:var(--accent)}
 .burger{display:none;flex-direction:column;gap:5px;padding:8px}
 .burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
 
 /* HERO */
-.hero{position:relative;min-height:clamp(580px,92vh,880px);display:flex;align-items:flex-end;overflow:hidden;color:#fff;isolation:isolate}
+.hero{position:relative;min-height:clamp(500px,74vh,700px);display:flex;align-items:flex-end;overflow:hidden;color:#fff;isolation:isolate}
 .hero-bg{position:absolute;inset:0;z-index:-2}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:heroCycle 21s linear infinite}
 .hero-slide:nth-child(1){animation-delay:0s}
@@ -74,7 +76,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(247,246,242,.82);backdr
 .hero-slide:nth-child(3){animation-delay:14s}
 @keyframes heroCycle{0%{opacity:0;transform:scale(1.1)}4%{opacity:1}30%{opacity:1;transform:scale(1.02)}37%{opacity:0}100%{opacity:0}}
 .hero-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,11,18,.5),rgba(8,11,18,.12) 30%,rgba(8,11,18,.32) 60%,rgba(8,11,18,.92)),linear-gradient(100deg,rgba(8,11,18,.72),rgba(8,11,18,.12) 52%,transparent 76%)}
-.hero-content{width:100%;padding-top:80px;padding-bottom:clamp(40px,6vw,74px);position:relative}
+.hero-content{width:100%;padding-top:56px;padding-bottom:clamp(36px,5vw,60px);position:relative}
 .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
 .hero-badge{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);border-radius:20px;padding:8px 14px;backdrop-filter:blur(6px);display:inline-flex;align-items:center;gap:7px}
 .hero-badge svg{width:14px;height:14px;color:var(--accent-2)}
@@ -256,6 +258,9 @@ header{position:sticky;top:0;z-index:100;background:rgba(247,246,242,.82);backdr
 footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:50px}
 .foot-lead h3{font-family:var(--display);font-size:28px;margin-bottom:14px;letter-spacing:-.01em}
+.foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-brand img{height:40px;width:auto}
+.foot-brand h3{margin:0}
 .foot-lead p{color:var(--muted);font-size:14.5px;max-width:360px;margin-bottom:22px}
 .director{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:15px;padding:16px;max-width:400px}
 .director .av{width:54px;height:54px;border-radius:13px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none;font-family:var(--display);font-weight:700}
@@ -357,7 +362,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
   <div class="wrap nav">
     <a class="brand" href="#top">
       <span class="mark"><img src="assets/logo-mark.png" alt="СК Авангард" /></span>
-      <span><span class="name">СК АВАНГАРД</span><br><span class="sub">Готовые дома · Ленобласть</span></span>
+      <span class="brand-txt"><span class="name">СК АВАНГАРД</span><span class="sub">Готовые дома · Ленобласть</span></span>
     </a>
     <nav class="nav-links">
       <a href="#projects">Дома</a><a href="#build">На участке</a><a href="#custom">На заказ</a><a href="#services">Услуги</a><a href="#mortgage">Оплата</a>
@@ -404,12 +409,12 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 <div class="marquee"><div class="marquee-track" id="mq"></div></div>
 
 <!-- STATS -->
-<section>
+<section class="sec-tint">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="kicker"><span class="dot"></span>[01] / О компании</span>
-      <h2>Не котлован, а готовый дом</h2>
-      <p class="lead">Мы не продаём «проект на бумаге». Все три дома уже стоят в Ленинградской области - их можно приехать и посмотреть вживую до покупки.</p>
+      <h2>Дом можно увидеть до покупки</h2>
+      <p class="lead">Три дома уже построены в Ленинградской области - приезжайте и посмотрите вживую. А если хотите на своём участке - построим такой же по проекту.</p>
     </div>
     <div class="stats">
       <div class="stat reveal"><span class="idx">01</span><svg class="sicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div class="n"><span class="big" data-count="9">0</span><span class="unit">лет</span></div><div class="l">строим частные дома в Санкт-Петербурге и Ленобласти</div></div>
@@ -463,7 +468,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       </div>
       <div class="pr-info">
         <span class="pr-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Построен · готов к заселению</span>
-        <div class="pr-name"><h3>«Нордик»</h3><span class="pr-sub">Дом 1 · одноэтажный, скандинавский</span></div>
+        <div class="pr-name"><h3>«Норд»</h3><span class="pr-sub">Дом 1 · одноэтажный, скандинавский</span></div>
         <p class="pr-desc">Одноэтажный дом 153,8 м² с двускатной кровлей, просторной кухней-гостиной 36 м², четырьмя спальнями и террасой 35 м². Всё жильё на одном уровне - без лестниц.</p>
         <div class="pr-specs">
           <div class="pr-spec"><span>Площадь</span><b>153,8<small> м²</small></b></div>
@@ -567,7 +572,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       </div>
       <div class="pr-info">
         <span class="pr-badge" style="color:var(--accent);background:var(--accent-soft);border-color:rgba(37,71,232,.3)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Готов на 100% · заезжай и живи</span>
-        <div class="pr-name"><h3>«Горизонт»</h3><span class="pr-sub">Дом 3 · современный модерн, панорамы</span></div>
+        <div class="pr-name"><h3>«Панорама»</h3><span class="pr-sub">Дом 3 · современный модерн, панорамы</span></div>
         <p class="pr-desc">Современный дом 173 м² с плоской кровлей, панорамным остеклением и деревянными акцентами. Максимум света и связи с участком. Полностью готов к заселению.</p>
         <div class="pr-specs">
           <div class="pr-spec"><span>Площадь</span><b>173<small> м²</small></b></div>
@@ -589,7 +594,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 </section>
 
 <!-- BUILD ON YOUR LAND (mini) -->
-<section id="build">
+<section id="build" class="sec-tint">
   <div class="wrap">
     <div class="sec-head reveal" style="max-width:780px">
       <span class="kicker"><span class="dot"></span>[03] / На вашем участке</span>
@@ -597,8 +602,8 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       <p class="lead">Понравился дом, но хотите строить у себя? Возведём такой же по проекту на вашей земле. Дешевле готового - платите только за дом.</p>
     </div>
     <div class="mini-list">
-      <div class="mini-row reveal"><img src="assets/house1-2.jpg" alt="Дом 1 - проект" loading="lazy"><div class="mini-info"><h3>«Нордик» · 153,8 м²</h3><p>Дом 1 · одноэтажный, скандинавский · 4 спальни</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 14 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 1 - на своём участке')">Заказать постройку</button></div></div>
-      <div class="mini-row reveal"><img src="assets/house3-1.jpg" alt="Дом 3 - проект" loading="lazy"><div class="mini-info"><h3>«Горизонт» · 173 м²</h3><p>Дом 3 · современный модерн · панорамы, плоская кровля</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 15 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 3 - на своём участке')">Заказать постройку</button></div></div>
+      <div class="mini-row reveal"><img src="assets/house1-2.jpg" alt="Дом 1 - проект" loading="lazy"><div class="mini-info"><h3>«Норд» · 153,8 м²</h3><p>Дом 1 · одноэтажный, скандинавский · 4 спальни</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 14 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 1 - на своём участке')">Заказать постройку</button></div></div>
+      <div class="mini-row reveal"><img src="assets/house3-1.jpg" alt="Дом 3 - проект" loading="lazy"><div class="mini-info"><h3>«Панорама» · 173 м²</h3><p>Дом 3 · современный модерн · панорамы, плоская кровля</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 15 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 3 - на своём участке')">Заказать постройку</button></div></div>
       <div class="mini-row reveal"><img src="assets/house2-2.jpg" alt="Дом 2 - проект" loading="lazy"><div class="mini-info"><h3>«Гранд» · 172,5 м²</h3><p>Дом 2 · одноэтажный, кирпичные акценты · 4 спальни</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 17 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 2 - на своём участке')">Заказать постройку</button></div></div>
     </div>
   </div>
@@ -648,7 +653,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 </section>
 
 <!-- EXTRA SERVICES -->
-<section id="services">
+<section id="services" class="sec-tint">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="kicker"><span class="dot"></span>[05] / Дополнительно</span>
@@ -681,7 +686,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="sec-tint">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center;align-items:center;margin-left:auto;margin-right:auto">
       <span class="kicker"><span class="dot"></span>[07] / Частые вопросы</span>
@@ -742,7 +747,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-lead">
-        <h3>СК Авангард</h3>
+        <div class="foot-brand"><img src="assets/logo-mark.png" alt="СК Авангард" /><h3>СК Авангард</h3></div>
         <p>Готовые частные дома под ключ в Ленинградской области. Реальные объекты, семейная ипотека, строительство по своему проекту.</p>
         <div class="director">
           <span class="av">КХ</span>
@@ -780,7 +785,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 
 <script>
 /* ===== ЗАЯВКА: вставь сюда URL webhook из n8n, чтобы заявки уходили автоматически ===== */
-const WEBHOOK_URL = ""; // напр. "https://your-n8n.example.com/webhook/zayavka"
+const WEBHOOK_URL = ""; // вставь URL webhook из n8n, напр. "https://ТВОЙ-n8n/webhook/sk-avangard-zayavka"
 
 function animateCount(el){
   if(el.dataset.counted)return;el.dataset.counted='1';
@@ -843,7 +848,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();clo
 
 /* spec modal (полные характеристики) */
 const SPECS={
- 'Дом 1':{sub:'«Нордик» · одноэтажный, скандинавский · 153,8 м²',groups:[
+ 'Дом 1':{sub:'«Норд» · одноэтажный, скандинавский · 153,8 м²',groups:[
    ['Технико-экономические',[['Площадь дома','153,8 м²'],['Площадь застройки','175 м²'],['Объём надземной части','579 м³'],['Надземных этажей','1'],['Высота дома','5,7 м'],['Высота потолков','3 м']]],
    ['Конструктивные решения',[['Наружные стены','Газобетон · 352 мм'],['Перегородки','Газобетон · 200 мм'],['Кровля','Металлочерепица, двускатная'],['Перекрытия','Деревянные'],['Фундамент','Плитный'],['Фасад','Штукатурка']]],
    ['Планировка',[['Спальни','4 (+ мастер 12 м²)'],['Санузлы','2 · ванная + душевая'],['Кухня-гостиная','36 м², совмещённая'],['Терраса','35 м²'],['Чердак · котельная · гардероб','есть#yes'],['Гараж · подвал · камин','нет#no']]],
@@ -857,7 +862,7 @@ const SPECS={
    ['Инженерия и сети',[['Электроснабжение','Центральное + индив.'],['Газоснабжение','Не предусмотрено'],['Отопление','Индивидуальное'],['Теплоснабжение','Индив., местное'],['Водоснабжение','Центральное + индив.'],['Водоотведение','Центр. + локальные очистные'],['Вентиляция','Естеств. + рекуперация']]],
    ['Дополнительно',[['Пригоден для ПМЖ','да#yes'],['Датчики протечки воды','да#yes'],['Улучшенная шумоизоляция','да#yes'],['Приборы учёта тепла','да#yes'],['Противопожарная система','нет#no'],['Строительство зимой','да#yes'],['Нетиповой проект','возможен#yes']]]
  ]},
- 'Дом 3':{sub:'«Горизонт» · современный модерн · 173 м² · готов 100%',groups:[
+ 'Дом 3':{sub:'«Панорама» · современный модерн · 173 м² · готов 100%',groups:[
    ['Технико-экономические',[['Площадь дома','173 м²'],['Площадь застройки','198 м²'],['Объём надземной части','587 м³'],['Надземных этажей','1'],['Высота дома','4,69 м'],['Высота потолков','2,9 м']]],
    ['Конструктивные решения',[['Наружные стены','Газобетон · 352 мм'],['Перегородки','Газобетон · 200 мм'],['Кровля','Рулонная битумно-полимерная, плоская'],['Перекрытия','Монолитные железобетонные'],['Фундамент','Плитный'],['Фасад','Штукатурка, панорамное остекление']]],
    ['Планировка',[['Спальни','4'],['Санузлы','2'],['Кухня-гостиная','совмещённая'],['Терраса','есть#yes'],['Чердак · подвал','нет#no'],['Гараж · камин','нет#no']]],

@@ -1,6 +1,7 @@
 assets/creations/
 assets/vendor/
 *.docx
+n8n-*.json
 ~$*
 avangard.jpg
 BUILDERBRIEF.md
