@@ -17,6 +17,8 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17.5px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
+html{overflow-x:hidden}
+.pr-media,.pr-info,.mini-info,.mini-row,.custom-media,.custom-body,.gallery,.gallery-main{min-width:0;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 ::selection{background:var(--accent);color:#fff}
@@ -64,8 +66,12 @@ header{position:sticky;top:0;z-index:100;background:rgba(247,246,242,.82);backdr
 .nav-cta{display:flex;align-items:center;gap:18px}
 .nav-phone{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:-.005em}
 .nav-phone:hover{color:var(--accent)}
-.burger{display:none;flex-direction:column;gap:5px;padding:8px}
-.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+.burger{display:none;flex-direction:column;gap:4px;padding:6px}
+.burger span{width:20px;height:1.5px;background:var(--ink);border-radius:2px;transition:.25s}
+header.nav-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+header.nav-open .burger span:nth-child(2){opacity:0}
+header.nav-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.nav-m-only{display:none}
 
 /* HERO */
 .hero{position:relative;min-height:clamp(500px,74vh,700px);display:flex;align-items:flex-end;overflow:hidden;color:#fff;isolation:isolate}
@@ -334,8 +340,13 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 .spec-item .v.yes{color:var(--ok)}.spec-item .v.no{color:#c0603a}
 @media(max-width:1024px){
   .serv{grid-template-columns:repeat(2,1fr)}
-  .nav-links,.nav-phone{display:none}
+  .nav-links,.nav-phone,.nav-desk-cta{display:none}
   .burger{display:flex}
+  header.nav-open .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:4px var(--pad) 16px;box-shadow:0 24px 40px -24px rgba(0,0,0,.25)}
+  header.nav-open .nav-links a{padding:15px 2px;border-bottom:1px solid var(--line);font-size:16px;font-weight:600}
+  header.nav-open .nav-links a:last-child{border-bottom:none}
+  .nav-m-only{display:block}
+  .nav-m-cta{color:var(--accent);font-weight:800}
   .cta-inner{grid-template-columns:1fr;gap:34px}
   .stats{grid-template-columns:repeat(2,1fr)}
   .pain-list{grid-template-columns:1fr}
@@ -347,11 +358,28 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
 }
 @media(max-width:680px){
   body{font-size:16px}
-  .nav-links,.nav-phone{display:none}.burger{display:flex}
+  .ghost{display:none}
+  .brand .name{font-size:15px}
+  .brand .sub{font-size:8px;letter-spacing:.1em;margin-top:3px}
+  .brand .mark img{height:36px}
+  .brand-txt{gap:0}
+  .sec-head{margin-bottom:34px;gap:12px}
   .stats,.proc,.foot-top,.serv{grid-template-columns:1fr}
-  .pr-specs{grid-template-columns:repeat(3,1fr)}
+  .stat{padding:24px 22px}
+  .stat .big{font-size:46px}
+  .pr-specs{grid-template-columns:repeat(3,1fr);gap:14px 8px;padding:16px 0}
+  .pr-spec b{font-size:16px}
+  .pr-name h3{font-size:26px}
   .spec-grid{grid-template-columns:1fr}
-  .hero-mini .m{padding-right:20px;margin-right:20px}
+  .spec-card{padding:22px 18px}
+  #specModal{padding:14px}
+  .hero{min-height:clamp(500px,84vh,640px)}
+  .hero-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 8px;border-top:1px solid rgba(255,255,255,.18);padding-top:20px}
+  .hero-mini .m{border-right:none;padding-right:0;margin-right:0;gap:3px}
+  .hero-mini .m b{font-size:21px}
+  .hero-mini .m span{font-size:10px}
+  .hero-badges{gap:7px}
+  .hero-badge{font-size:10.5px;padding:6px 11px}
   .cta,.form{padding:26px}.foot-bot{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
@@ -365,12 +393,12 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       <span class="brand-txt"><span class="name">СК АВАНГАРД</span><span class="sub">Готовые дома · Ленобласть</span></span>
     </a>
     <nav class="nav-links">
-      <a href="#projects">Дома</a><a href="#build">На участке</a><a href="#custom">На заказ</a><a href="#services">Услуги</a><a href="#mortgage">Оплата</a>
+      <a href="#projects" onclick="closeNav()">Дома</a><a href="#build" onclick="closeNav()">На участке</a><a href="#custom" onclick="closeNav()">На заказ</a><a href="#services" onclick="closeNav()">Услуги</a><a href="#mortgage" onclick="closeNav()">Оплата</a><a href="tel:+79312136061" class="nav-m-only">Позвонить: +7 (931) 213-60-61</a><a href="#lead" class="nav-m-only nav-m-cta" onclick="closeNav()">Оставить заявку</a>
     </nav>
     <div class="nav-cta">
       <a class="nav-phone" href="tel:+79312136061">+7 (931) 213-60-61</a>
-      <a class="btn btn-primary" href="#lead">Оставить заявку</a>
-      <button class="burger" aria-label="Меню" onclick="document.querySelector('.nav-links').style.display='flex'"><span></span><span></span><span></span></button>
+      <a class="btn btn-primary nav-desk-cta" href="#lead">Оставить заявку</a>
+      <button class="burger" aria-label="Меню" onclick="document.querySelector('header').classList.toggle('nav-open')"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -520,7 +548,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       </div>
       <div class="pr-info">
         <span class="pr-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Построен · готов к заселению</span>
-        <div class="pr-name"><h3>«Гранд»</h3><span class="pr-sub">Дом 2 · одноэтажный, кирпичные акценты</span></div>
+        <div class="pr-name"><h3>«Модерн»</h3><span class="pr-sub">Дом 2 · одноэтажный, кирпичные акценты</span></div>
         <p class="pr-desc">Просторный одноэтажный дом 172,5 м² с фактурными кирпичными вставками и большой крытой террасой. Четыре спальни, два санузла, светлая кухня-гостиная.</p>
         <div class="pr-specs">
           <div class="pr-spec"><span>Площадь</span><b>172,5<small> м²</small></b></div>
@@ -572,7 +600,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       </div>
       <div class="pr-info">
         <span class="pr-badge" style="color:var(--accent);background:var(--accent-soft);border-color:rgba(37,71,232,.3)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Готов на 100% · заезжай и живи</span>
-        <div class="pr-name"><h3>«Панорама»</h3><span class="pr-sub">Дом 3 · современный модерн, панорамы</span></div>
+        <div class="pr-name"><h3>«Горизонт»</h3><span class="pr-sub">Дом 3 · современный модерн, панорамы</span></div>
         <p class="pr-desc">Современный дом 173 м² с плоской кровлей, панорамным остеклением и деревянными акцентами. Максимум света и связи с участком. Полностью готов к заселению.</p>
         <div class="pr-specs">
           <div class="pr-spec"><span>Площадь</span><b>173<small> м²</small></b></div>
@@ -603,8 +631,8 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
     </div>
     <div class="mini-list">
       <div class="mini-row reveal"><img src="assets/house1-2.jpg" alt="Дом 1 - проект" loading="lazy"><div class="mini-info"><h3>«Норд» · 153,8 м²</h3><p>Дом 1 · одноэтажный, скандинавский · 4 спальни</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 14 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 1 - на своём участке')">Заказать постройку</button></div></div>
-      <div class="mini-row reveal"><img src="assets/house3-1.jpg" alt="Дом 3 - проект" loading="lazy"><div class="mini-info"><h3>«Панорама» · 173 м²</h3><p>Дом 3 · современный модерн · панорамы, плоская кровля</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 15 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 3 - на своём участке')">Заказать постройку</button></div></div>
-      <div class="mini-row reveal"><img src="assets/house2-2.jpg" alt="Дом 2 - проект" loading="lazy"><div class="mini-info"><h3>«Гранд» · 172,5 м²</h3><p>Дом 2 · одноэтажный, кирпичные акценты · 4 спальни</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 17 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 2 - на своём участке')">Заказать постройку</button></div></div>
+      <div class="mini-row reveal"><img src="assets/house2-2.jpg" alt="Дом 2 - проект" loading="lazy"><div class="mini-info"><h3>«Модерн» · 172,5 м²</h3><p>Дом 2 · одноэтажный, кирпичные акценты · 4 спальни</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 15 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 2 - на своём участке')">Заказать постройку</button></div></div>
+      <div class="mini-row reveal"><img src="assets/house3-1.jpg" alt="Дом 3 - проект" loading="lazy"><div class="mini-info"><h3>«Горизонт» · 173 м²</h3><p>Дом 3 · современный модерн · панорамы, плоская кровля</p></div><div class="mini-price"><small>проект под ключ</small><div class="p">от 17 000 000 ₽</div><button class="btn btn-primary" onclick="pickProject('Дом 3 - на своём участке')">Заказать постройку</button></div></div>
     </div>
   </div>
 </section>
@@ -697,7 +725,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       <details class="qa reveal"><summary>Как можно оплатить дом?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><div class="a">Как вам удобно: предоплатой по этапам, через семейную ипотеку или ипотеку банка (в том числе Сбербанк и платформа стройдом.рф). Дома готовы, поэтому банку проще одобрить сделку. Подскажем по документам и подаче заявки.</div></details>
       <details class="qa reveal"><summary>Можно построить дом по своему проекту?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><div class="a">Да. Кроме трёх готовых домов мы строим по индивидуальному проекту - можно принести свой или доработать один из готовых под себя. Пример дома, построенного на заказ, есть в разделе «Свой проект».</div></details>
       <details class="qa reveal"><summary>Что входит в цену под ключ?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><div class="a">Дом сдаётся с отделкой и инженерными системами: отопление, водоснабжение, водоотведение, электрика, вентиляция. Комнаты на фото - реальные интерьеры готовых домов. Точную комплектацию по каждому дому уточняйте у менеджера.</div></details>
-      <details class="qa reveal"><summary>Где именно находятся дома?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><div class="a">Ленинградская область. Точный адрес объектов и удобное время просмотра согласуем по телефону.</div></details>
+      <details class="qa reveal"><summary>Где именно находятся дома?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><div class="a">Территория «Белоостровская Высота», Сертоловское городское поселение, Всеволожский район, Ленинградская область. Все три дома стоят рядом, недалеко друг от друга. <a href="https://yandex.ru/maps/?pt=30.031884%2C60.188313&amp;z=15&amp;l=map" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600;white-space:nowrap">Открыть на Яндекс.Картах &#8599;</a></div></details>
     </div>
   </div>
 </section>
@@ -715,7 +743,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
           <p class="lead" style="margin-top:18px">Оставьте контакт или позвоните напрямую. Организуем просмотр в Ленобласти, ответим по ипотеке и цене. Без навязывания.</p>
           <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
             <a class="btn btn-primary btn-lg" href="tel:+79312136061"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+7 (931) 213-60-61</a>
-            <a class="btn btn-light btn-lg" href="mailto:sprinter_k@mail.ru"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Написать на почту</a>
+            <a class="btn btn-light btn-lg" href="mailto:skavangard.info@bk.ru"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Написать на почту</a>
           </div>
         </div>
         <form class="form" id="leadForm" onsubmit="return submitLead(event)">
@@ -761,7 +789,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
       </div>
       <div class="foot-col">
         <h4>Контакты</h4>
-        <a href="tel:+79312136061">+7 (931) 213-60-61</a><a href="mailto:sprinter_k@mail.ru">sprinter_k@mail.ru</a><p>Санкт-Петербург</p><p>Пн-Пт, 10:00-20:00</p><a href="https://строим.дом.рф/contractor/22589" target="_blank" rel="noopener">Профиль на строим.дом.рф</a>
+        <a href="tel:+79312136061">+7 (931) 213-60-61</a><a href="mailto:skavangard.info@bk.ru">skavangard.info@bk.ru</a><p>Санкт-Петербург</p><a href="https://yandex.ru/maps/?pt=30.031884%2C60.188313&amp;z=15&amp;l=map" target="_blank" rel="noopener noreferrer">Объекты на карте (Всеволожский р-н) &#8599;</a><p>Пн-Пт, 10:00-20:00</p><a href="https://строим.дом.рф/contractor/22589" target="_blank" rel="noopener">Профиль на строим.дом.рф</a>
       </div>
     </div>
     <div class="foot-bot">
@@ -855,14 +883,14 @@ const SPECS={
    ['Инженерия и сети',[['Электроснабжение','Центральное + индив.'],['Газоснабжение','Не предусмотрено'],['Отопление','Индивидуальное'],['Теплоснабжение','Индив., местное'],['Водоснабжение','Центральное + индив.'],['Водоотведение','Центр. + локальные очистные'],['Вентиляция','Естеств. + рекуперация']]],
    ['Дополнительно',[['Пригоден для ПМЖ','да#yes'],['Датчики протечки воды','да#yes'],['Улучшенная шумоизоляция','да#yes'],['Приборы учёта тепла','да#yes'],['Противопожарная система','нет#no'],['Строительство зимой','да#yes'],['Нетиповой проект','возможен#yes']]]
  ]},
- 'Дом 2':{sub:'«Гранд» · одноэтажный, кирпичные акценты · 172,5 м²',groups:[
+ 'Дом 2':{sub:'«Модерн» · одноэтажный, кирпичные акценты · 172,5 м²',groups:[
    ['Технико-экономические',[['Площадь дома','172,5 м²'],['Площадь застройки','198 м²'],['Объём надземной части','672 м³'],['Надземных этажей','1'],['Высота дома','5,87 м'],['Высота потолков','3 м']]],
    ['Конструктивные решения',[['Наружные стены','Газобетон · 352 мм'],['Перегородки','Газобетон · 200 мм'],['Кровля','Металлочерепица, двускатная'],['Перекрытия','Деревянные'],['Фундамент','Плитный'],['Фасад','Штукатурка + кирпич']]],
    ['Планировка',[['Спальни','4'],['Санузлы','2'],['Кухня-гостиная','совмещённая'],['Терраса','крытая'],['Чердак','есть#yes'],['Гараж · подвал · камин','нет#no']]],
    ['Инженерия и сети',[['Электроснабжение','Центральное + индив.'],['Газоснабжение','Не предусмотрено'],['Отопление','Индивидуальное'],['Теплоснабжение','Индив., местное'],['Водоснабжение','Центральное + индив.'],['Водоотведение','Центр. + локальные очистные'],['Вентиляция','Естеств. + рекуперация']]],
    ['Дополнительно',[['Пригоден для ПМЖ','да#yes'],['Датчики протечки воды','да#yes'],['Улучшенная шумоизоляция','да#yes'],['Приборы учёта тепла','да#yes'],['Противопожарная система','нет#no'],['Строительство зимой','да#yes'],['Нетиповой проект','возможен#yes']]]
  ]},
- 'Дом 3':{sub:'«Панорама» · современный модерн · 173 м² · готов 100%',groups:[
+ 'Дом 3':{sub:'«Горизонт» · современный модерн · 173 м² · готов 100%',groups:[
    ['Технико-экономические',[['Площадь дома','173 м²'],['Площадь застройки','198 м²'],['Объём надземной части','587 м³'],['Надземных этажей','1'],['Высота дома','4,69 м'],['Высота потолков','2,9 м']]],
    ['Конструктивные решения',[['Наружные стены','Газобетон · 352 мм'],['Перегородки','Газобетон · 200 мм'],['Кровля','Рулонная битумно-полимерная, плоская'],['Перекрытия','Монолитные железобетонные'],['Фундамент','Плитный'],['Фасад','Штукатурка, панорамное остекление']]],
    ['Планировка',[['Спальни','4'],['Санузлы','2'],['Кухня-гостиная','совмещённая'],['Терраса','есть#yes'],['Чердак · подвал','нет#no'],['Гараж · камин','нет#no']]],
@@ -881,7 +909,8 @@ const specModalEl=document.getElementById('specModal');
 specModalEl.addEventListener('click',e=>{if(e.target===specModalEl||e.target.closest('.sc-close'))closeSpec();});
 
 /* form -> n8n webhook (or demo) */
-function pickProject(name){const s=document.getElementById('projectSelect');if(s)s.value=name;
+function closeNav(){document.querySelector('header').classList.remove('nav-open');}
+function pickProject(name){const s=document.getElementById('projectSelect');if(s)s.value=name;closeNav();
   document.getElementById('lead').scrollIntoView({behavior:'smooth'});}
 async function submitLead(e){e.preventDefault();
   const f=e.target,data={name:f.name.value,phone:f.phone.value,project:f.project.value,ts:new Date().toISOString(),source:'sk-avangard-site'};
