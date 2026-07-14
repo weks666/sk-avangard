@@ -148,6 +148,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-4
 .pr-info .kicker{margin-bottom:16px}
 .pr-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ok);background:rgba(31,157,87,.1);border:1px solid rgba(31,157,87,.3);border-radius:20px;padding:6px 12px;margin-bottom:16px}
 .pr-badge svg{width:13px;height:13px}
+.pr-badge.proj{color:var(--accent);background:var(--accent-soft);border-color:rgba(37,71,232,.3)}
 .pr-map{display:inline-flex;align-items:center;gap:6px;margin:0 0 16px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);transition:.2s}
 .pr-map:hover{opacity:.7}
 .pr-map svg{width:13px;height:13px}
@@ -466,7 +467,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
     <div class="sec-head reveal">
       <span class="kicker"><span class="dot"></span>[02] / Готовые дома</span>
       <h2>Готовые дома в наличии</h2>
-      <p class="lead">Реальные фото, интерьеры и планировки готовых домов. Листайте галерею, откройте план с размерами, разверните полные характеристики.</p>
+      <p class="lead">Три дома уже построены - реальные фото, интерьеры и планировки. Плюс новый проект «Панорама», который построим на вашем участке. Листайте галерею, откройте план, разверните полные характеристики.</p>
     </div>
 
     <!-- HOUSE 1 -->
@@ -624,6 +625,54 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
         </div>
       </div>
     </article>
+
+    <!-- HOUSE 4 - ПАНОРАМА (проект) -->
+    <article class="pr alt reveal">
+      <div class="pr-media">
+        <div class="gallery">
+          <div class="gallery-main">
+            <img class="on" src="assets/homes/pano-1.jpg" alt="Панорама - визуализация фасада" loading="lazy" />
+            <img src="assets/homes/pano-2.jpg" alt="Панорама - вид сбоку с террасой" loading="lazy" />
+            <img src="assets/homes/pano-3.jpg" alt="Панорама - боковой фасад" loading="lazy" />
+            <img src="assets/homes/pano-4.jpg" alt="Панорама - задний фасад" loading="lazy" />
+            <img class="is-plan" src="assets/homes/pano-plan.png" alt="Панорама - планировка и экспликация помещений" loading="lazy" />
+            <img class="is-plan" src="assets/homes/pano-facades.png" alt="Панорама - фасады, чертёж" loading="lazy" />
+            <span class="gallery-fig">«Панорама» / визуализации, план, фасады</span>
+            <span class="gallery-count"><b>1</b> / 6</span>
+            <button class="gallery-arrow prev" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button class="gallery-arrow next" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+          </div>
+          <div class="gallery-thumbs">
+            <div class="gallery-thumb on" style="background-image:url(assets/homes/pano-1.jpg)"></div>
+            <div class="gallery-thumb" style="background-image:url(assets/homes/pano-2.jpg)"></div>
+            <div class="gallery-thumb" style="background-image:url(assets/homes/pano-3.jpg)"></div>
+            <div class="gallery-thumb" style="background-image:url(assets/homes/pano-4.jpg)"></div>
+            <div class="gallery-thumb plan" style="background-image:url(assets/homes/pano-plan.png)"><span class="lbl">План</span></div>
+            <div class="gallery-thumb plan" style="background-image:url(assets/homes/pano-facades.png)"><span class="lbl">Фасады</span></div>
+          </div>
+        </div>
+        <div class="gallery-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="10"/></svg>Это проект: изображения - визуализации будущего дома и рабочие чертежи (план, фасады). Дом ещё не построен - возведём такой же на вашем участке под ключ, с чистовой отделкой.</div>
+      </div>
+      <div class="pr-info">
+        <span class="pr-badge proj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4L15.3 2.7a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1 0 1.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/></svg>Проект · построим на вашем участке</span>
+        <div class="pr-name"><h3>«Панорама»</h3><span class="pr-sub">Дом 4 · одноэтажный, современный · проект</span></div>
+        <p class="pr-desc">Одноэтажный дом 161 м²: отдельная кухня-столовая 36 м², гостиная 27 м², три спальни, кабинет и два санузла. Многоскатная кровля, панорамное остекление, деревянные и каменные акценты. Пока проект - построим такой на вашей земле под ключ.</p>
+        <div class="pr-specs">
+          <div class="pr-spec"><span>Площадь</span><b>161,3<small> м²</small></b></div>
+          <div class="pr-spec"><span>Спальни</span><b>3</b></div>
+          <div class="pr-spec"><span>Санузла</span><b>2</b></div>
+          <div class="pr-spec"><span>Высота</span><b>5<small> м</small></b></div>
+          <div class="pr-spec"><span>Застройка</span><b>205<small> м²</small></b></div>
+          <div class="pr-spec"><span>Этажей</span><b>1</b></div>
+        </div>
+        <div class="pr-price"><span class="p">По проекту</span><small>смету рассчитаем под ваш участок и комплектацию</small></div>
+        <div class="pr-actions">
+          <button class="btn btn-ghost" onclick="openSpec('Панорама')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>Характеристики</button>
+          <button class="btn btn-ghost" onclick="showPlan(this)">Открыть план</button>
+          <button class="btn btn-primary" onclick="pickProject('Панорама - проект')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>Обсудить проект</button>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -753,7 +802,7 @@ footer{border-top:1px solid var(--line);padding:66px 0 42px;margin-top:20px}
             <div class="field"><label>Ваше имя</label><input type="text" name="name" placeholder="Как к вам обращаться" required /></div>
             <div class="field"><label>Телефон</label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required /></div>
             <div class="field"><label>Интересующий дом</label>
-              <select name="project" id="projectSelect"><option>Ещё выбираю</option><option>Дом 1</option><option>Дом 2</option><option>Дом 3</option><option>Построить на своём участке</option><option>Дом на заказ</option></select>
+              <select name="project" id="projectSelect"><option>Ещё выбираю</option><option>Дом 1</option><option>Дом 2</option><option>Дом 3</option><option>Панорама - проект</option><option>Построить на своём участке</option><option>Дом на заказ</option></select>
             </div>
             <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>Записаться на просмотр</button>
             <p class="priv">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
@@ -896,6 +945,13 @@ const SPECS={
    ['Планировка',[['Спальни','4'],['Санузлы','2'],['Кухня-гостиная','совмещённая'],['Терраса','есть#yes']]],
    ['Инженерия и сети',[['Электроснабжение','Центральное'],['Отопление','Индивидуальное'],['Теплоснабжение','Индив., местное'],['Водоснабжение','Центральное + индив.'],['Водоотведение','Центр. + локальные очистные'],['Вентиляция','Естеств. + рекуперация']]],
    ['Дополнительно',[['Пригоден для ПМЖ','да#yes'],['Датчики протечки воды','да#yes'],['Улучшенная шумоизоляция','да#yes'],['Приборы учёта тепла','да#yes'],['Чистовая отделка','да#yes']]]
+ ]},
+ 'Панорама':{sub:'«Панорама» · одноэтажный, современный · проект · 161,3 м²',groups:[
+   ['Технико-экономические',[['Площадь дома','161,3 м²'],['Жилая площадь','69 м²'],['Площадь застройки','204,9 м²'],['Строительный объём','900 м³'],['Надземных этажей','1'],['Высота дома','5 м']]],
+   ['Конструктивные решения',[['Наружные стены','Газобетон · 352 мм'],['Перегородки','Газобетон · 200 мм'],['Кровля','Металлочерепица, многоскатная'],['Перекрытия','Деревянные'],['Фундамент','Плитный'],['Фасад','Штукатурка, дерево, камень']]],
+   ['Планировка',[['Спальни','3'],['Санузлы','2 · сан.узел + ванная'],['Кухня-столовая','36 м², отдельная'],['Гостиная','27 м²'],['Кабинет · 2 кладовые · котельная','есть#yes'],['Тамбур + холл','есть#yes']]],
+   ['Инженерия и сети',[['Электроснабжение','Центральное + индив.'],['Отопление','Индивидуальное'],['Теплоснабжение','Индив., местное'],['Водоснабжение','Центральное + индив.'],['Водоотведение','Центр. + локальные очистные'],['Вентиляция','Естеств. + рекуперация']]],
+   ['Дополнительно',[['Статус','проект - ещё не построен'],['Пригоден для ПМЖ','да#yes'],['Датчики протечки воды','да#yes'],['Улучшенная шумоизоляция','да#yes'],['Чистовая отделка','да#yes'],['Строим на вашем участке','да#yes']]]
  ]}
 };
 function openSpec(name){const s=SPECS[name];if(!s)return;
